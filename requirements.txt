@@ -1,1 +1,3 @@
-
+requests==2.18.4
+ShopifyAPI==3.0.0
+pyactiveresource==2.1.2
