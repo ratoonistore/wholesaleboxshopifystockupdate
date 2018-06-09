@@ -3,7 +3,7 @@ import shopify, requests, json, math, time, os, smtplib, base64
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from datetime import datetime
-
+    
 #ratoon shop authentication url
 shop_url = "https://5ecbc3ae838d1b44a6c4f16037a1b6f0:4d13f266b2bc45733187cf4b7001d760@ratoon-istore.myshopify.com/admin"
 
@@ -14,7 +14,7 @@ productCount_Json = json.loads(urlToGetProductCount_Response.content)
 totalProductCount = int(productCount_Json['count'])
 
 #setting product limit
-productLimit = 4
+productLimit = 50
 
 #total pages available
 totalpage = int(math.ceil(totalProductCount/productLimit)) + 1;
@@ -28,8 +28,8 @@ productRunCount = 0;
 instockProductRunCount = 0;
 outstockProductRunCount = 0;
 
-for i in range(1, 2):
-    products = shopify.Product.find(vendor = "Wholesalebox", limit = productLimit, page = 28)
+for i in range(1, totalpage):
+    products = shopify.Product.find(vendor = "Wholesalebox", limit = productLimit, page = i)
     
     for product in products:
         productRunCount = productRunCount + 1
