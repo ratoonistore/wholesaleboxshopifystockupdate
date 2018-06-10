@@ -1,5 +1,5 @@
 #import libraries
-import shopify, requests, json, math, time, os
+import shopify, requests, json, math, time
 from datetime import datetime
 import Notify
 
@@ -41,9 +41,7 @@ for i in range(1, totalpage):
                 
     for product in products:
         productRunCount = productRunCount + 1
-        print("\n\tPages in progress : " + str(i) + " of " + str(totalpage))
-        print("\tProducts in progress : " + str(productRunCount) + " of " + str(totalProductCount))
-                    
+        
         for variant in product.variants:
             
             try:
@@ -67,8 +65,6 @@ for i in range(1, totalpage):
                             variant.inventory_quantity = wholesaleboxQty
                             variant.save()
                             outstockProductRunCount = outstockProductRunCount + 1
-                            
-                        os.system('cls')
 
             except:
                 Failed_Products_SKU = Failed_Products_SKU + ", " + product_SKU
