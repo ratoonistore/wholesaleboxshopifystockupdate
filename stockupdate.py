@@ -74,9 +74,9 @@ for i in range(1, totalpage):
                             product.published_at = None
                             product.save()
                             
-                        elif(shopifyQty > 0):
+                        """elif(shopifyQty > 0):
                             product.published_at = "2018-06-16T19:00:00-05:00"
-                            product.save()
+                            product.save()"""
 
             except:
                 Failed_Products_SKU = Failed_Products_SKU + ", " + product_SKU
