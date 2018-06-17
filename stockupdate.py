@@ -66,7 +66,7 @@ for i in range(1, totalpage):
                         elif(shopifyQty <= 0 and wholesaleboxQty > 3):     #out-stock => in-stock
                             variant.inventory_quantity = wholesaleboxQty
                             variant.save()
-                            product.published_at = "2018-06-17T19:00:00-05:00"
+                            product.published_at = "2018-06-16T19:00:00-05:00"
                             product.save()
                             outstockProductRunCount = outstockProductRunCount + 1
 
